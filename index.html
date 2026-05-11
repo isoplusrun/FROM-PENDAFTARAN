@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brook Farm Almond Run</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#c7ea00;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:white;
+}
+
+body::before{
+    content:'';
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size:40px 40px;
+    z-index:0;
+}
+
+.container{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
+}
+
+.hero{
+    position:relative;
+    border-radius:35px;
+    overflow:hidden;
+    padding:80px 40px;
+    background:linear-gradient(135deg,#b4d600,#9fd100,#b8eb00);
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(1px);
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.left{
+    flex:1 1 450px;
+}
+
+.badge{
+    display:inline-block;
+    padding:10px 22px;
+    background:#111;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:25px;
+    letter-spacing:1px;
+}
+
+.title{
+    font-size:78px;
+    line-height:0.95;
+    font-weight:800;
+    color:#fff;
+    text-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.title span{
+    display:block;
+    font-size:90px;
+    color:#ffffff;
+}
+
+.desc{
+    margin-top:25px;
+    max-width:600px;
+    font-size:17px;
+    line-height:1.8;
+    color:#f8f8f8;
+}
+
+.price-box{
+    margin-top:35px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.price-card{
+    background:white;
+    color:#111;
+    padding:22px;
+    border-radius:25px;
+    min-width:220px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.price-card:hover{
+    transform:translateY(-8px);
+}
+
+.price-card h3{
+    font-size:32px;
+    color:#7bb000;
+}
+
+.price-card p{
+    margin-top:8px;
+    font-size:15px;
+    font-weight:600;
+}
+
+.price{
+    margin-top:10px;
+    font-size:28px;
+    font-weight:800;
+}
+
+.form-card{
+    flex:1 1 380px;
+    background:rgba(255,255,255,0.16);
+    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter:blur(12px);
+    padding:35px;
+    border-radius:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+.form-card h2{
+    font-size:32px;
+    margin-bottom:25px;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:18px;
+    background:white;
+    color:#111;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:110px;
+}
+
+.total-box{
+    margin-top:15px;
+    padding:18px;
+    border-radius:20px;
+    background:#111;
+    text-align:center;
+}
+
+.total-box h3{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.total-price{
+    font-size:34px;
+    font-weight:800;
+    color:#c7ea00;
+}
+
+.btn{
+    width:100%;
+    margin-top:22px;
+    border:none;
+    padding:18px;
+    border-radius:18px;
+    background:#111;
+    color:white;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.03);
+    background:#1d1d1d;
+}
+
+.footer-info{
+    margin-top:40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.info-box{
+    background:rgba(255,255,255,0.15);
+    border-radius:25px;
+    padding:25px;
+    backdrop-filter:blur(10px);
+}
+
+.info-box h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.info-box p{
+    line-height:1.8;
+}
+
+.runner-shape{
+    position:absolute;
+    right:-80px;
+    top:-40px;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+}
+
+.wave{
+    position:absolute;
+    bottom:-50px;
+    left:-50px;
+    width:300px;
+    height:300px;
+    background:rgba(255,255,255,0.08);
+    border-radius:50%;
+}
+
+@media(max-width:900px){
+
+.title{
+    font-size:56px;
+}
+
+.title span{
+    font-size:64px;
+}
+
+.hero{
+    padding:40px 25px;
+}
+
+.form-card{
+    padding:25px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<div class="hero">
+
+<div class="runner-shape"></div>
+<div class="wave"></div>
+
+<div class="hero-content">
+
+<div class="left">
+
+<div class="badge">BROOK FARM ALMOND RUN 2026</div>
+
+<h1 class="title">
+Brook Farm
+<span>RUN</span>
+</h1>
+
+<p class="desc">
+Rasakan pengalaman lari paling gokil, seru, premium, dan super estetik tahun ini.
+Gabung bersama ribuan runner terbaik dan nikmati race experience level DEWA GILA PROMAX 🔥
+</p>
+
+<div class="price-box">
+
+<div class="price-card">
+<h3>5K</h3>
+<p>Category Race</p>
+<div class="price">Rp. 150.000</div>
+</div>
+
+<div class="price-card">
+<h3>10K</h3>
+<p>Category Race</p>
+<div class="price">Rp. 250.000</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="form-card">
+
+<h2>Form Pendaftaran</h2>
+
+<form onsubmit="kirimWA(event)">
+
+<div class="input-group">
+<label>Nama Lengkap</label>
+<input type="text" id="nama" required>
+</div>
+
+<div class="input-group">
+<label>Nomor WhatsApp</label>
+<input type="number" id="wa" required>
+</div>
+
+<div class="input-group">
+<label>Email</label>
+<input type="email" id="email" required>
+</div>
+
+<div class="input-group">
+<label>Kategori Race</label>
+<select id="kategori" onchange="hitungTotal()" required>
+<option value="">-- Pilih Kategori --</option>
+<option value="150000">5K - Rp.150.000</option>
+<option value="250000">10K - Rp.250.000</option>
+</select>
+</div>
+
+<div class="input-group">
+<label>Ukuran Jersey</label>
+<select required>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+<option>XXL</option>
+</select>
+</div>
+
+<div class="input-group">
+<label>Alamat Lengkap</label>
+<textarea required></textarea>
+</div>
+
+<div class="total-box">
+<h3>Total Pembayaran</h3>
+<div class="total-price" id="total">Rp. 0</div>
+</div>
+
+<button class="btn" type="submit">
+DAFTAR SEKARANG 🚀
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<div class="footer-info">
+
+<div class="info-box">
+<h3>Benefit Peserta</h3>
+<p>
+✔ Jersey Exclusive<br>
+✔ BIB Number<br>
+✔ Finisher Medal<br>
+✔ Race Pack<br>
+✔ Hydration<br>
+✔ Doorprize
+</p>
+</div>
+
+<div class="info-box">
+<h3>Informasi Event</h3>
+<p>
+📍 Lokasi : Brook Farm City Park<br>
+📅 Tanggal : 15 Juni 2026<br>
+⏰ Start : 05:30 WIB
+</p>
+</div>
+
+<div class="info-box">
+<h3>Pembayaran</h3>
+<p>
+Transfer via QRIS / Bank Transfer.<br>
+Setelah daftar peserta akan diarahkan otomatis ke WhatsApp Admin.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function hitungTotal(){
+
+const kategori = document.getElementById('kategori').value;
+const total = document.getElementById('total');
+
+if(kategori == '150000'){
+    total.innerHTML = 'Rp. 150.000';
+}
+else if(kategori == '250000'){
+    total.innerHTML = 'Rp. 250.000';
+}
+else{
+    total.innerHTML = 'Rp. 0';
+}
+
+}
+
+function kirimWA(event){
+
+event.preventDefault();
+
+const nama = document.getElementById('nama').value;
+const wa = document.getElementById('wa').value;
+const email = document.getElementById('email').value;
+const kategori = document.getElementById('kategori');
+const kategoriText = kategori.options[kategori.selectedIndex].text;
+
+const pesan = `🔥 PENDAFTARAN BROOK FARM RUN 🔥%0A%0A`+
+`👤 Nama : ${nama}%0A`+
+`📱 WhatsApp : ${wa}%0A`+
+`📧 Email : ${email}%0A`+
+`🏃 Kategori : ${kategoriText}%0A%0A`+
+`Saya ingin melakukan pendaftaran Brook Farm Almond Run.`;
+
+window.open(`https://wa.me/6281234567890?text=${pesan}`,'_blank');
+
+}
+
+</script>
+
+</body>
+</html>
