@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Brook Farm Almond Run</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -16,10 +18,12 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f6f2;
-color:#222;
+background:#f3f5ef;
 padding:20px;
+color:#222;
 }
+
+/* CONTAINER */
 
 .container{
 max-width:520px;
@@ -31,25 +35,40 @@ box-shadow:0 10px 35px rgba(0,0,0,0.08);
 }
 
 /* HERO */
+
 .hero{
 position:relative;
 height:260px;
-background:url('https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop') center/cover;
+background:url('banner.png') center/cover;
 display:flex;
-align-items:end;
-padding:25px;
+align-items:flex-end;
+padding:24px;
 }
 
-.overlay{
+.hero::before{
+content:'';
 position:absolute;
 inset:0;
-background:linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.1));
+background:linear-gradient(to top,
+rgba(0,0,0,0.65),
+rgba(0,0,0,0.15));
 }
 
 .hero-content{
 position:relative;
 z-index:2;
 color:white;
+}
+
+.badge{
+display:inline-block;
+padding:6px 12px;
+border-radius:999px;
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(6px);
+font-size:12px;
+font-weight:600;
+margin-bottom:12px;
 }
 
 .hero h1{
@@ -65,35 +84,38 @@ opacity:0.9;
 }
 
 /* CONTENT */
+
 .content{
 padding:24px;
 }
 
 .title{
-font-size:22px;
+font-size:24px;
 font-weight:700;
-margin-bottom:6px;
+margin-bottom:8px;
 }
 
 .subtitle{
 font-size:14px;
 color:#666;
+line-height:1.6;
 margin-bottom:24px;
 }
 
-/* CARD INFO */
+/* INFO */
+
 .info-box{
-background:#f7f9f4;
+background:#f8faf5;
+border:1px solid #e5ebdb;
 border-radius:18px;
 padding:18px;
-margin-bottom:22px;
-border:1px solid #e4eadc;
+margin-bottom:24px;
 }
 
 .info-item{
 display:flex;
 justify-content:space-between;
-margin-bottom:10px;
+margin-bottom:12px;
 font-size:14px;
 }
 
@@ -103,19 +125,48 @@ margin-bottom:0;
 
 .price{
 font-weight:700;
-color:#7aa300;
+color:#86a800;
+}
+
+/* QRIS */
+
+.qris-box{
+background:#fff;
+border:1px solid #e5e5e5;
+border-radius:20px;
+padding:20px;
+text-align:center;
+margin-bottom:24px;
+}
+
+.qris-box h3{
+font-size:18px;
+margin-bottom:6px;
+}
+
+.qris-box p{
+font-size:13px;
+color:#666;
+margin-bottom:16px;
+}
+
+.qris-box img{
+width:100%;
+max-width:280px;
+border-radius:14px;
 }
 
 /* FORM */
+
 .form-group{
 margin-bottom:18px;
 }
 
 label{
 display:block;
+margin-bottom:8px;
 font-size:14px;
 font-weight:600;
-margin-bottom:8px;
 }
 
 input,
@@ -125,17 +176,10 @@ width:100%;
 padding:14px;
 border-radius:14px;
 border:1px solid #ddd;
-font-size:14px;
 outline:none;
+font-size:14px;
 transition:0.3s;
 background:white;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-border-color:#9ac200;
-box-shadow:0 0 0 4px rgba(154,194,0,0.15);
 }
 
 textarea{
@@ -143,14 +187,22 @@ resize:none;
 height:90px;
 }
 
+input:focus,
+select:focus,
+textarea:focus{
+border-color:#99bf00;
+box-shadow:0 0 0 4px rgba(153,191,0,0.15);
+}
+
 /* TOTAL */
+
 .total-box{
-background:#f8ffe1;
-border:1px solid #dce8aa;
-padding:16px;
-border-radius:16px;
 margin-top:10px;
 margin-bottom:24px;
+background:#f8ffe1;
+border:1px solid #dce8aa;
+border-radius:16px;
+padding:16px;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -158,19 +210,20 @@ align-items:center;
 
 .total-box span{
 font-size:14px;
-color:#555;
+color:#666;
 }
 
 .total-box h2{
 font-size:24px;
-color:#7da600;
+color:#84a600;
 }
 
 /* BUTTON */
+
 button{
 width:100%;
-border:none;
 padding:16px;
+border:none;
 border-radius:16px;
 background:#9ac200;
 color:white;
@@ -181,11 +234,12 @@ transition:0.3s;
 }
 
 button:hover{
-background:#87ab00;
+background:#88ae00;
 transform:translateY(-2px);
 }
 
 /* FOOTER */
+
 .footer{
 text-align:center;
 padding:20px;
@@ -193,18 +247,8 @@ font-size:12px;
 color:#777;
 }
 
-.badge{
-display:inline-block;
-padding:6px 12px;
-background:#eaf5bf;
-color:#769500;
-border-radius:999px;
-font-size:12px;
-font-weight:600;
-margin-bottom:15px;
-}
-
 /* MOBILE */
+
 @media(max-width:600px){
 
 body{
@@ -224,38 +268,51 @@ padding:20px;
 }
 
 }
+
 </style>
 </head>
+
 <body>
 
 <div class="container">
 
+<!-- HERO -->
+
 <div class="hero">
-<div class="overlay"></div>
 
 <div class="hero-content">
-<div class="badge">BROOK FARM EVENT 2026</div>
+<div class="badge">BROOK FARM RUN 2026</div>
+
 <h1>Brook Farm<br>Almond Run</h1>
-<p>Healthy Run Experience • 5K & 10K Category</p>
+
+<p>Healthy Lifestyle Running Event</p>
 </div>
+
 </div>
+
+<!-- CONTENT -->
 
 <div class="content">
 
-<div class="title">Form Pendaftaran</div>
-<div class="subtitle">
-Isi data dengan lengkap untuk mengikuti event Brook Farm Almond Run 2026.
+<div class="title">
+Form Pendaftaran
 </div>
+
+<div class="subtitle">
+Silahkan isi data dengan lengkap untuk mengikuti event Brook Farm Almond Run 2026.
+</div>
+
+<!-- INFO -->
 
 <div class="info-box">
 
 <div class="info-item">
-<span>Kategori 5K</span>
+<span>Category 5K</span>
 <span class="price">Rp150.000</span>
 </div>
 
 <div class="info-item">
-<span>Kategori 10K</span>
+<span>Category 10K</span>
 <span class="price">Rp250.000</span>
 </div>
 
@@ -265,6 +322,22 @@ Isi data dengan lengkap untuk mengikuti event Brook Farm Almond Run 2026.
 </div>
 
 </div>
+
+<!-- QRIS -->
+
+<div class="qris-box">
+
+<h3>Pembayaran QRIS</h3>
+
+<p>
+Silahkan scan QRIS berikut untuk melakukan pembayaran.
+</p>
+
+<img src="qris.png" alt="QRIS Payment">
+
+</div>
+
+<!-- FORM -->
 
 <form>
 
@@ -284,15 +357,17 @@ Isi data dengan lengkap untuk mengikuti event Brook Farm Almond Run 2026.
 </div>
 
 <div class="form-group">
-<label>Pilih Kategori</label>
+<label>Pilih Category</label>
+
 <select id="kategori" onchange="updateTotal()">
 <option value="150000">5K - Rp150.000</option>
 <option value="250000">10K - Rp250.000</option>
 </select>
+
 </div>
 
 <div class="form-group">
-<label>Alamat</label>
+<label>Alamat Lengkap</label>
 <textarea placeholder="Masukkan alamat lengkap"></textarea>
 </div>
 
@@ -300,6 +375,8 @@ Isi data dengan lengkap untuk mengikuti event Brook Farm Almond Run 2026.
 <label>Upload Bukti Pembayaran</label>
 <input type="file">
 </div>
+
+<!-- TOTAL -->
 
 <div class="total-box">
 <span>Total Pembayaran</span>
@@ -314,6 +391,8 @@ Daftar Sekarang
 
 </div>
 
+<!-- FOOTER -->
+
 <div class="footer">
 © 2026 Brook Farm Almond Run
 </div>
@@ -321,16 +400,23 @@ Daftar Sekarang
 </div>
 
 <script>
+
 function updateTotal(){
-const kategori = document.getElementById('kategori').value;
-const total = document.getElementById('total');
+
+const kategori =
+document.getElementById('kategori').value;
+
+const total =
+document.getElementById('total');
 
 if(kategori == '150000'){
 total.innerHTML = 'Rp150.000';
 }else{
 total.innerHTML = 'Rp250.000';
 }
+
 }
+
 </script>
 
 </body>
